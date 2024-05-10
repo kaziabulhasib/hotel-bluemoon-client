@@ -1,5 +1,6 @@
+import EmailNewsletter from "../components/EmailNewsletter";
 import LeafletMap from "../components/LeafletMap";
-import Newsletter from "../components/Newsletter";
+
 import Slider from "../components/Slider";
 
 const Home = () => {
@@ -8,7 +9,7 @@ const Home = () => {
       <h1>This is home</h1>
       <Slider></Slider>
       <LeafletMap></LeafletMap>
-      <Newsletter></Newsletter>
+      <EmailNewsletter></EmailNewsletter>
     </div>
   );
 };

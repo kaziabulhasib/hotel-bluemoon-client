@@ -1,13 +1,12 @@
 function EmailNewsletter() {
   return (
-    <div className='p-6 border-2 border-gray-300'>
-      <h1 className='text-green-500'>GeeksforGeeks</h1>
+    <div className='p-6 border-2 border-gray-300 my-12'>
+      <h1 className='text-gray-500 font-semibold'>Hotel BlueMoon</h1>
       <p>
-        How many times were you frustrated while looking out for a good
-        collection of programming/algorithm/interview questions? What did you
-        expect and what did you get? This portal has been created to provide
-        well written, well thought and well explained solutions for selected
-        questions. Subscribe us to get daily tech update.
+        Ready to simplify your hotel booking process? Say goodbye to endless
+        options and hello to hassle-free stays. Subscribe for updates, deals,
+        and exclusive offers tailored just for you. Book with confidence and
+        ease. Subscribe now for a seamless hotel experience!
       </p>
       <div className='p-4 border-2 border-gray-300'>
         <input
@@ -24,11 +23,7 @@ function EmailNewsletter() {
           name='email'
           required
         />
-        <img
-          className='rounded-full w-12 float-right m-1'
-          src='https://media.geeksforgeeks.org/wp-content/uploads/20191212104429/logo8.png'
-          alt='logo'
-        />
+
         <br />
         <br />
         <label>
@@ -38,12 +33,12 @@ function EmailNewsletter() {
             checked='checked'
             name='check'
           />
-          Daily newsletter
+          Weekly newsletter
         </label>
       </div>
       <div className='p-4'>
         <button
-          className='w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 mb-3 rounded'
+          className='w-full bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 px-4 mb-3 rounded'
           type='submit'
           value='Subscribe'>
           Subscribe
