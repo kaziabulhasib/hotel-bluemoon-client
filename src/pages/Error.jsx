@@ -8,8 +8,12 @@ const Error = () => {
         backgroundImage: `url(${bgImg2})`,
         backgroundSize: "cover",
       }}>
-      <h1 className='text-[400px] text-center bg- text-white font-bold mb-none'>
+      <p className='lg:text-7xl font-robo capitalize font-semibold text-white'>
+        Page not found
+      </p>
+      <h1 className='text-[400px]  text-center bg- text-white font-bold mb-0'>
         404
+        {/* <span className='text-base '>page not found</span> */}
       </h1>
 
       <Link
