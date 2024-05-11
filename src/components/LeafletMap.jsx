@@ -25,10 +25,10 @@ const LeafletMap = () => {
   }, []);
 
   return (
-    <div className=''>
-      {/* <h1>Our hotel location</h1> */}
+    <div className='mt-8'>
+      <h1 className='font-robo text-4xl text-center'>Our hotel location</h1>
 
-      <div id='map' className='w-full h-[600px]'></div>
+      <div id='map' className='w-full h-[600px] mt-8'></div>
     </div>
   );
 };
