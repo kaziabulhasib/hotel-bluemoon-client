@@ -20,11 +20,11 @@ const Navbar = () => {
             <Link to='/my-bookings'>My Bookings</Link>
           </li>
 
-          {/* {!user && (
+          {!user && (
             <li>
               <Link to='/login'>Login</Link>
             </li>
-          )} */}
+          )}
         </ul>
 
         {user && (
@@ -44,7 +44,7 @@ const Navbar = () => {
             <ul
               tabIndex={0}
               className='menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52'>
-              <li>
+              {/* <li>
                 <Link to='/add-job' className='justify-between'>
                   Add Job
                 </Link>
@@ -57,7 +57,7 @@ const Navbar = () => {
               </li>
               <li>
                 <Link to='/bid-requests'>Bid Requests</Link>
-              </li>
+              </li> */}
               <li className='mt-2'>
                 <button
                   onClick={logOut}
