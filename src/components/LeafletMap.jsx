@@ -26,7 +26,9 @@ const LeafletMap = () => {
 
   return (
     <div className='mt-8'>
-      <h1 className='font-robo text-4xl text-center'>Our hotel location</h1>
+      <h1 className='font-robo font-semibold text-4xl text-center'>
+        Our hotel location
+      </h1>
 
       <div id='map' className='w-full h-[600px] mt-8'></div>
     </div>

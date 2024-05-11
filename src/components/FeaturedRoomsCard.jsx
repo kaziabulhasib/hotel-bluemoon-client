@@ -1,10 +1,7 @@
 const FeaturedRoomsCard = ({ room }) => {
-  const {
-    Availability,
-    "Room Description": roomDescription,
-    "Room Images": roomImages,
-  } = room || {};
-  const firstImage = roomImages && roomImages.length > 0 ? roomImages[0] : null;
+  const { room_description, room_images } = room || {};
+  const firstImage =
+    room_images && room_images.length > 0 ? room_images[0] : null;
   return (
     <div>
       <div className='card card-compact w-96 bg-base-100 shadow-xl px-2'>
@@ -16,7 +13,7 @@ const FeaturedRoomsCard = ({ room }) => {
           />
         </figure>
         <div className='card-body'>
-          <h2 className='card-title h-[80px]'>{roomDescription}</h2>
+          <h2 className='card-title h-[80px]'>{room_description}</h2>
 
           <div className='card-actions justify-end'>
             <button className='btn '>Book Now</button>

@@ -12,7 +12,7 @@ function EmailNewsletter() {
   };
   return (
     <div className='mt-8'>
-      <h1 className='font-robo text-4xl text-center'>
+      <h1 className='font-robo font-semibold text-4xl text-center'>
         Stay connected with Us!
       </h1>
       <div className='p-6 border-2 border-gray-300 my-12'>

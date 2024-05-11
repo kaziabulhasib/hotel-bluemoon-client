@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   // const location = useLocation();
   const { signIn, signInWithGoogle } = useContext(AuthContext);
   // const from = location.state || "/";
@@ -16,6 +16,7 @@ const Login = () => {
     try {
       await signInWithGoogle();
       // navigate(from, { replace: true });
+      navigate("/");
       toast.success("Logged in Successfully");
     } catch (err) {
       console.log(err);
