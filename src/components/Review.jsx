@@ -2,20 +2,41 @@ import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
+// import { useLoaderData } from "react-router-dom";
 // import toast from "react-hot-toast";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
 const Review = () => {
+  const { _id } = useParams();
   const { user } = useContext(AuthContext);
-  const handleReview = (e) => {
+
+  // const { _id } = useLoaderData();
+  const handleReview = async (e) => {
     e.preventDefault();
     const form = e.target;
     const email = user.email;
     const rating = parseInt(form.rating.value);
     const comment = form.comment.value;
-    const review = { email, rating, comment };
+    const roomId = _id;
+
+    const review = { email, rating, comment, roomId };
+
     console.table(review);
-    Swal.fire("Review submited, Thank You!");
-    form.reset();
+    console.log(review);
+    // Swal.fire("Review submited, Thank You!");
+
+    try {
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_API_URL}/reviews`,
+        review
+      );
+      console.log(data);
+      Swal.fire("Review submited, Thank You!");
+      form.reset();
+    } catch (err) {
+      console.log(err);
+    }
   };
   return (
     <div className='hero min-h-screen lg:mt-12 mt-6'>
@@ -46,6 +67,18 @@ const Review = () => {
                 defaultValue={user.email}
               />
             </div>
+            {/* <div className='form-control'>
+              <label className='label'>
+                <span className='label-text'>Room id</span>
+              </label>
+              <input
+                type='_id'
+                placeholder='_id'
+                className='input input-bordered'
+                disabled
+                defaultValue={user._id}
+              />
+            </div> */}
             <div className='form-control'>
               <label className='label'>
                 <span className='label-text'>Rating</span>

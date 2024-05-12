@@ -1,4 +1,10 @@
+import { useNavigate } from "react-router-dom";
+
 const FeaturedRoomsCard = ({ room }) => {
+  const navigate = useNavigate();
+  const handleBookNow = () => {
+    navigate(`/room/${room._id}`);
+  };
   const { room_description, room_images } = room || {};
   const firstImage =
     room_images && room_images.length > 0 ? room_images[0] : null;
@@ -16,7 +22,9 @@ const FeaturedRoomsCard = ({ room }) => {
           <h2 className='card-title h-[80px]'>{room_description}</h2>
 
           <div className='card-actions justify-end'>
-            <button className='btn '>Book Now</button>
+            <button onClick={handleBookNow} className='btn '>
+              Book Now
+            </button>
           </div>
         </div>
       </div>

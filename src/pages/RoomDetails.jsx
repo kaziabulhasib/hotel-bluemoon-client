@@ -1,5 +1,6 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+
 const RoomDetails = () => {
   const navigate = useNavigate();
   const room = useLoaderData();
@@ -38,7 +39,9 @@ const RoomDetails = () => {
           text: "You can now post review",
           icon: "success",
         });
-        navigate("/review/:id");
+        // navigate("/reviews/:id");
+        // navigate("/reviews");
+        navigate(`/reviews/${_id}`);
       }
     });
   };
@@ -54,6 +57,7 @@ const RoomDetails = () => {
         </figure>
       </div>
       <div className='card-body items-center text-center'>
+        <h2 className='card-title'>{_id}</h2>
         <h2 className='card-title'>{room_description}</h2>
         <h2 className='card-title'>{room_size}Room</h2>
         <h2 className='card-title'> {price_per_night} Per Night</h2>
