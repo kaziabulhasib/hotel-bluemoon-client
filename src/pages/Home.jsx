@@ -4,6 +4,7 @@ import LeafletMap from "../components/LeafletMap";
 
 import Slider from "../components/Slider";
 import FeaturedRooms from "../components/FeaturedRooms";
+import { Helmet } from "react-helmet-async";
 // import FeaturedRoomsCard from "../components/FeaturedRoomsCard";
 
 const Home = () => {
@@ -11,7 +12,9 @@ const Home = () => {
   console.log(rooms);
   return (
     <div className='space-y-12'>
-      {/* <h1>This is home: {rooms.length}</h1> */}
+      <Helmet>
+        <title>Home-Hotel Bluemoon</title>
+      </Helmet>
 
       <Slider></Slider>
       <LeafletMap></LeafletMap>

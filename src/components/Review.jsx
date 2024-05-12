@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 // import toast from "react-hot-toast";
 
 const Review = () => {
@@ -18,6 +19,9 @@ const Review = () => {
   };
   return (
     <div className='hero min-h-screen lg:mt-12 mt-6'>
+      <Helmet>
+        <title>review-Hotel Bluemoon</title>
+      </Helmet>
       <div className='hero-content flex-col '>
         <div className='text-center lg:text-left'>
           <h1 className='text-5xl text-center font-bold'>Review now!</h1>

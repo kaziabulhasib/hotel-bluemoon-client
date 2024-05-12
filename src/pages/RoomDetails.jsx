@@ -38,7 +38,7 @@ const RoomDetails = () => {
           text: "You can now post review",
           icon: "success",
         });
-        navigate("/review");
+        navigate("/review/:id");
       }
     });
   };
