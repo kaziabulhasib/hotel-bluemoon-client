@@ -44,7 +44,7 @@ const RoomDetails = () => {
     fetchReviewCount();
   }, [_id]);
 
-  const handleBookNow = () => {
+  const handleBookNow = async () => {
     const bookingDate = startDate.toLocaleDateString();
 
     Swal.fire({
