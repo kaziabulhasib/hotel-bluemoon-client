@@ -1,4 +1,4 @@
-axios.defaults.baseURL = "http://localhost:5000";
+// axios.defaults.baseURL = "http://localhost:5000";
 import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 import { useEffect } from "react";
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+axios.defaults.baseURL = import.meta.env.VITE_API_URL;
 
 const RoomDetails = () => {
   const [reviewCount, setReviewCount] = useState(0);

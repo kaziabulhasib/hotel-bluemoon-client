@@ -45,7 +45,7 @@ const Review = () => {
       </Helmet>
       <div className='hero-content flex-col '>
         <div className='text-center lg:text-left'>
-          <h1 className='text-5xl text-center font-bold'>Review now!</h1>
+          <h1 className='text-5xl text-center font-bold'>Review now! </h1>
           <p className='py-6 w-3/4 mx-auto text-center text-xl'>
             Thank you for choosing Hotel BlueMoon! We hope you have a wonderful
             stay with us. Could you please take a moment to share your thoughts
