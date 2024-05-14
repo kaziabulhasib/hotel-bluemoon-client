@@ -9,7 +9,7 @@ import Register from "../pages/Authentication/Register";
 import RoomDetails from "../pages/RoomDetails";
 import Review from "../components/Review";
 import PrivateRoute from "../components/PrivateRoute";
-
+console.log(import.meta.env.VITE_API_URL);
 const router = createBrowserRouter([
   {
     path: "/",

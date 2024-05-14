@@ -1,3 +1,4 @@
+axios.defaults.baseURL = "http://localhost:5000";
 import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -30,8 +31,7 @@ const RoomDetails = () => {
 
   const secondImage =
     room_images && room_images.length > 0 ? room_images[1] : null;
-  // ADDING REVIEW COUNT ---------------------------------------------------------WILL DELTE IF ERROR HAPPENED
-  // Fetch review count when component mounts
+
   useEffect(() => {
     const fetchReviewCount = async () => {
       try {
@@ -49,26 +49,49 @@ const RoomDetails = () => {
 
     Swal.fire({
       html: `${room_description}<br/> Room size:${room_size} <br/>cost: $ ${price_per_night} / night <br/> Booking Date:${bookingDate}`,
-
       title: "Confirm Bookings?",
-      // text: "Click confirm button for your booking!",
-
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Confirm!",
-    }).then((result) => {
+    }).then(async (result) => {
       if (result.isConfirmed) {
-        Swal.fire({
-          title: "Congrats Booking Confirmed",
-          text: "You can now post review",
-          icon: "success",
-        });
-        // I want to post booking data from here.
+        try {
+          const bookingData = {
+            userEmail,
+            roomId: _id,
+            roomDescription: room_description,
+            roomSize: room_size,
+            pricePerNight: price_per_night,
+            bookingDate,
+          };
 
-        navigate(`/reviews/${_id}`);
-        console.log(bookingDate);
+          const response = await axios.post("/bookings", bookingData);
+
+          if (response.status === 200) {
+            Swal.fire({
+              title: "Congrats Booking Confirmed",
+              text: "You can now post review",
+              icon: "success",
+            });
+            // navigate(`/reviews/${_id}`);
+            console.log(bookingData);
+          } else {
+            Swal.fire({
+              title: "Error",
+              text: "There was an issue confirming your booking.",
+              icon: "error",
+            });
+          }
+        } catch (error) {
+          Swal.fire({
+            title: "Error",
+            text: "There was an issue confirming your booking.",
+            icon: "error",
+          });
+          console.error("Error confirming booking:", error);
+        }
       }
     });
   };
@@ -93,8 +116,6 @@ const RoomDetails = () => {
         <h2 className='card-title'>{special_offers}</h2>
         <div className='flex  gap-2 justify-center items-center '>
           <label className='text-gray-700 font-medium'>Booking Date :</label>
-
-          {/* Date Picker Input Field */}
           <DatePicker
             className='border p-2 rounded-md font-semibold text-xl'
             selected={startDate}
