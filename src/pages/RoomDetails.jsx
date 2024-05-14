@@ -76,6 +76,7 @@ const RoomDetails = () => {
               icon: "success",
             });
             // navigate(`/reviews/${_id}`);
+            navigate("/my-bookings");
             console.log(bookingData);
           } else {
             Swal.fire({

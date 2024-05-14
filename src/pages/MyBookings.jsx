@@ -36,7 +36,9 @@ const MyBookings = () => {
               <th>Room Size</th>
               <th>Price per Night</th>
               <th>Booking Date</th>
-              <th>Actions</th>
+              <th>Cancel</th>
+              <th>Post Review</th>
+              <th>Update Date</th>
             </tr>
           </thead>
           <tbody>
@@ -54,7 +56,13 @@ const MyBookings = () => {
                   <td>${booking.pricePerNight}</td>
                   <td>{booking.bookingDate}</td>
                   <td>
-                    <button className='btn btn-primary'>View Details</button>
+                    <button className='btn btn-primary'>Cancel</button>
+                  </td>
+                  <td>
+                    <button className='btn btn-primary'>Review</button>
+                  </td>
+                  <td>
+                    <button className='btn btn-primary'>Update</button>
                   </td>
                 </tr>
               ))
