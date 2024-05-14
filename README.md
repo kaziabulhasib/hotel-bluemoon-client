@@ -10,6 +10,6 @@
 - Advanced search filters including price, location, and star ratings.
 - Secure payment system supporting multiple payment methods.
 - Real-time room availability and instant booking confirmation.
-- 24/7 customer support for a seamless booking experience
+- 24/7 customer support for a seamless booking experience .
 
 ## packages used-- Helmet & leaflet
