@@ -16,7 +16,7 @@ const RoomDetails = () => {
   const navigate = useNavigate();
   const room = useLoaderData();
   const { user } = useContext(AuthContext);
-  const userEmail = user.email;
+  const userEmail = user?.email;
   const {
     _id,
     room_description,

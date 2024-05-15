@@ -29,14 +29,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/room/:id",
-        element: (
-          <PrivateRoute>
-            <RoomDetails></RoomDetails>
-          </PrivateRoute>
-        ),
+        element: <RoomDetails></RoomDetails>,
         loader: ({ params }) =>
           fetch(`${import.meta.env.VITE_API_URL}/room/${params.id}`),
-        // fetch(`http://localhost:9000/room/${params.id}`),
       },
       {
         path: "/login",
