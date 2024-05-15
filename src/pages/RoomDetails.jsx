@@ -21,7 +21,7 @@ const RoomDetails = () => {
     _id,
     room_description,
     price_per_night,
-    price_category,
+
     room_size,
     availability,
     room_images,
@@ -33,19 +33,30 @@ const RoomDetails = () => {
   const secondImage =
     room_images && room_images.length > 0 ? room_images[1] : null;
 
-  useEffect(() => {
-    const fetchReviewCount = async () => {
-      try {
-        const response = await axios.get(`/reviews/${_id}`);
-        setReviewCount(response.data.totalCount);
-      } catch (error) {
-        console.error("Error fetching review count:", error);
-      }
-    };
-    fetchReviewCount();
-  }, [_id]);
+  // useEffect(() => {
+  //   const fetchReviewCount = async () => {
+  //     try {
+  //       const response = await axios.get(`/reviews/${_id}`);
+  //       setReviewCount(response.data.totalCount);
+  //     } catch (error) {
+  //       console.error("Error fetching review count:", error);
+  //     }
+  //   };
+  //   fetchReviewCount();
+  // }, [_id]);
 
   const handleBookNow = async () => {
+    if (!user) {
+      Swal.fire({
+        title: "Not Logged In",
+        text: "Please log in to proceed with the booking.",
+        icon: "warning",
+        confirmButtonColor: "#3085d6",
+      }).then(() => {
+        navigate("/login");
+      });
+      return;
+    }
     const bookingDate = startDate.toLocaleDateString();
 
     Swal.fire({
@@ -66,6 +77,8 @@ const RoomDetails = () => {
             roomSize: room_size,
             pricePerNight: price_per_night,
             bookingDate,
+            firstImage,
+            secondImage,
           };
 
           const response = await axios.post("/bookings", bookingData);
@@ -100,6 +113,7 @@ const RoomDetails = () => {
 
   return (
     <div className='card w-3/4 mx-auto bg-base-100 shadow-xl mt-24'>
+      <h1 className='text-3xl text-center font-semibold'>Room Details</h1>
       <div className='flex lg:flex-row flex-col'>
         <figure className='px-10 pt-10 flex-1 lg:h-[300px] lg:w-[300px]'>
           <img src={firstImage} className='rounded-xl w-full h-full' />
@@ -110,12 +124,12 @@ const RoomDetails = () => {
       </div>
       <div className='card-body items-center text-center'>
         <p>Review count: {reviewCount}</p>
-        <h2 className='card-title'>{_id}</h2>
+        {/* <h2 className='card-title'>{_id}</h2> */}
         <h2 className='card-title'>{room_description}</h2>
-        <h2 className='card-title'>{room_size}Room</h2>
-        <h2 className='card-title'> {price_per_night} Per Night</h2>
-        <h2 className='card-title'>{availability}</h2>
-        <h2 className='card-title'>{special_offers}</h2>
+        <h2 className='card-title'>Room Size: {room_size}</h2>
+        <h2 className='card-title'> Cost: {price_per_night} Per Night</h2>
+        <h2 className='card-title'>Status:{availability}</h2>
+        <h2 className='card-title'>Special Offer: {special_offers}</h2>
         <div className='flex  gap-2 justify-center items-center '>
           <label className='text-gray-700 font-medium'>Booking Date :</label>
           <DatePicker

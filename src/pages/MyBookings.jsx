@@ -77,7 +77,12 @@ const MyBookings = () => {
       }
       console.log("delete confirmed");
     }
-    // ---------------
+  };
+  // ---------------
+
+  const handleUpdate = (id) => {
+    console.log(id);
+    navigate(`/update/${id}`);
   };
 
   return (
@@ -94,7 +99,7 @@ const MyBookings = () => {
               <th>Room Size</th>
               <th>Price per Night</th>
               <th>Booking Date</th>
-              <th>Cancel</th>
+              <th>Cancel Booking</th>
               <th>Post Review</th>
               <th>Update Date</th>
             </tr>
@@ -128,7 +133,9 @@ const MyBookings = () => {
                     </button>
                   </td>
                   <td>
-                    <button className='btn  text-white bg-green-600 hover:bg-green-700 '>
+                    <button
+                      onClick={() => handleUpdate(booking.roomId)}
+                      className='btn  text-white bg-green-600 hover:bg-green-700 '>
                       Update
                     </button>
                   </td>

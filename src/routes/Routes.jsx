@@ -9,6 +9,7 @@ import Register from "../pages/Authentication/Register";
 import RoomDetails from "../pages/RoomDetails";
 import Review from "../components/Review";
 import PrivateRoute from "../components/PrivateRoute";
+import Update from "../components/Update";
 console.log(import.meta.env.VITE_API_URL);
 const router = createBrowserRouter([
   {
@@ -55,6 +56,13 @@ const router = createBrowserRouter([
 
         // loader: ({ params }) =>
         //   fetch(`${import.meta.env.VITE_API_URL}/room/${params.id}`),
+      },
+      {
+        path: "/update/:id",
+        element: <Update></Update>,
+
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_API_URL}/room/${params.id}`),
       },
     ],
   },
