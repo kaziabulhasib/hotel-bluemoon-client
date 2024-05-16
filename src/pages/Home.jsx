@@ -5,6 +5,7 @@ import LeafletMap from "../components/LeafletMap";
 import Slider from "../components/Slider";
 import FeaturedRooms from "../components/FeaturedRooms";
 import { Helmet } from "react-helmet-async";
+import CustomerReviewSection from "../components/CustomerReviewSection";
 // import FeaturedRoomsCard from "../components/FeaturedRoomsCard";
 
 const Home = () => {
@@ -20,6 +21,7 @@ const Home = () => {
       <LeafletMap></LeafletMap>
       <EmailNewsletter></EmailNewsletter>
       <FeaturedRooms rooms={rooms}></FeaturedRooms>
+      <CustomerReviewSection></CustomerReviewSection>
     </div>
   );
 };

@@ -1,4 +1,3 @@
-// axios.defaults.baseURL = "http://localhost:5000";
 import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
