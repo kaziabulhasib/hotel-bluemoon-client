@@ -16,9 +16,9 @@ const CustomerReviewSection = () => {
             <div className='p-6'>
               <h3 className='text-xl font-semibold mb-2'>John Doe</h3>
               <p className='text-gray-700'>
-                "Hotel Bluemoon is my go-to destination for a perfect getaway.
-                The rooms are absolutely stunning and have become my favorite
-                place to relax and unwind. Thank you for the excellent service!"
+                "Bluemoon is my go-to destination for a perfect getaway. The
+                rooms are absolutely stunning and have become my favorite place
+                to relax and unwind. Thank you for the excellent service!"
               </p>
             </div>
           </div>
